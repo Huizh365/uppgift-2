@@ -1,9 +1,32 @@
-<html>
+<?php
+    require "config.php"
+?><html>
     <head>
         <title>Uppgift 2</title>
     </head>
     <body>
-        Uppgift
+        <?php
+            function fsu24d_say_hello($greeting="Hello") {
+                if(isset($_POST["name"])) {
+                    $name = $_POST["name"];                
+                } else {
+                    $name = "stranger";
+                }
+                echo($greeting. " " . $name . "!");
+            }
+
+            if($_SERVER["REQUEST_METHOD"] === "POST") {
+                fsu24d_say_hello();
+            } else {
+                ?>
+                <form method="POST">
+                    <input name="name" />
+                    <input type="submit" />
+                </form>
+            <?php
+            }
+            ?>
+
         
         <div style="display:flex">
         <?php 
@@ -45,7 +68,9 @@
                     <div><?= $product['name']?></div>
                     <div><?= $product['price']?></div>
                     <img width="200" height="200"/>
-                    <a href="/product-<?= $product['name'] ?>.php"> view <?= $product['name']?> </a> 
+                    <?php
+                        require "button.php"
+                    ?>
                     <!-- link to product detail page, with .php end -->
                 </div>
            <?php  }?>

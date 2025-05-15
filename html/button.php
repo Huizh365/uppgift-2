@@ -1,0 +1,1 @@
+<a href="/product-<?= $product['name'] ?>.php"> view <?= $product['name']?> </a> 

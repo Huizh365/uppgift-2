@@ -11,12 +11,14 @@ Thumbs.db
 # Composer
 /vendor/
 composer.lock
+docker-compose.yml
 
 # Environment and config
 .env
 .env.*
 *.local.php
 *.env.php
+config.php
 
 # Logs and caches
 /logs/
