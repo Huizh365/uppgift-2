@@ -1,0 +1,31 @@
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Composer
+/vendor/
+composer.lock
+
+# Environment and config
+.env
+.env.*
+*.local.php
+*.env.php
+
+# Logs and caches
+/logs/
+/cache/
+/tmp/
+*.log
+
+# PHPUnit test results
+.phpunit.result.cache
+
+# Coverage reports
+coverage/
