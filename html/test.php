@@ -43,7 +43,8 @@
 
     /* 5. move function into config, and use namespace to access the class */
     $test_array = array_map('\Fsu24d\TestObject::add_to_array', $test_array); 
-
-
+    
     var_dump($test_array); 
+
+    var_dump(\Fsu24d\TestObject::$sum_to_add2); //can also get variable from the class
 ?>
