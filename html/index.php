@@ -7,6 +7,24 @@
     </head>
     <body>
         <?php
+
+            $database = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, "products");
+            $sql="SELECT * FROM products";
+            $result = $database->query($sql);
+
+            $products = [];
+
+            if($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()){
+                    $products[] = $row;
+                }
+            } else {
+                echo "No products found";
+            }
+
+            $database->close();
+
+
             function fsu24d_say_hello($greeting="Hello") {
                 if(isset($_POST["name"])) {
                     $name = $_POST["name"];     
@@ -35,28 +53,7 @@
 
         
         <div style="display:flex">
-        <?php 
-            $products = [
-                [
-                    'name'=> "product 1",
-                    'category' => "cat 1",
-                    'price' => 11,
-                    'is_new' => true
-                ],
-                [
-                    'name'=> "product 2",
-                    'category' => "cat 2",
-                    'price' => 22,
-                    'is_new' => false
-                ],
-                [
-                    'name'=> "product 3",
-                    'category' => "cat 3",
-                    'price' => 333,
-                    'is_new' => true
-                ]
-            ]
-        ?>
+
         <?php 
             for ($i=0; $i<count($products); $i++) {
                 $product = $products[$i]
