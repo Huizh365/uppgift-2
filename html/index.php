@@ -1,5 +1,6 @@
 <?php
-    require "config.php"
+    require_once "config.php";
+    session_start();
 ?><html>
     <head>
         <title>Uppgift 2</title>
@@ -8,14 +9,19 @@
         <?php
             function fsu24d_say_hello($greeting="Hello") {
                 if(isset($_POST["name"])) {
-                    $name = $_POST["name"];                
+                    $name = $_POST["name"];     
+                    $_SESSION["name"]=$name;           
                 } else {
-                    $name = "stranger";
+                    if(isset($_SESSION["name"])){
+                        $name=$_SESSION["name"];
+                    } else {
+                        $name = "stranger";
+                    }
                 }
                 echo($greeting. " " . $name . "!");
             }
 
-            if($_SERVER["REQUEST_METHOD"] === "POST") {
+            if($_SERVER["REQUEST_METHOD"] === "POST" || isset($_SESSION["name"])) {
                 fsu24d_say_hello();
             } else {
                 ?>
