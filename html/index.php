@@ -1,11 +1,7 @@
 <?php
-    require_once "config.php";
-    session_start();
-?><html>
-    <head>
-        <title>Uppgift 2</title>
-    </head>
-    <body>
+    require_once "header.php";
+?>
+Here is the body 
         <?php
 
             $database = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, "products");
