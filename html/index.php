@@ -22,9 +22,6 @@
                 echo "No products found";
             }
 
-            $database->close();
-
-
             function fsu24d_say_hello($greeting="Hello") {
                 if(isset($_POST["name"])) {
                     $name = $_POST["name"];     
