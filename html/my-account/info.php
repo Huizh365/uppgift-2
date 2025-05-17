@@ -2,5 +2,6 @@
     require_once("../header.php");
 ?>
         MY ACCOUNT
-    </body>
-</html>
+<?php
+    require_once "footer.php"
+?>

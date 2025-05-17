@@ -1,5 +1,9 @@
 <?php
-    require_once "config.php";
+    require_once "header.php";
+?>
+    here is main
+    <div>
+<?php
     
     echo($_GET["id"]);
 
@@ -21,4 +25,8 @@
     } else {
         echo "No id provided";
     }
+?>
+</div>
+<?php
+    require_once "footer.php"
 ?>

@@ -19,7 +19,7 @@
         $new_likes = array_values(array_diff($_SESSION["likes"], [$id]));
         //array_values: get the values of the array, skip showing all the keys
         //array_diff: remove items with a certain value from an array
-        
+
         $_SESSION["likes"] = $new_likes;
     }
 ?>
@@ -110,9 +110,6 @@ Here is the body
                 </div>
            <?php  }?>
             </div>
-
-        
-
-        
-    </body>
-</html>
+<?php
+    require_once "footer.php"
+?>
