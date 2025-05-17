@@ -1,5 +1,27 @@
 <?php
     require_once "header.php";
+
+    if(isset($_GET["like"])){
+        $id = 1*$_GET["like"];
+
+        if(!isset($_SESSION["likes"])){
+            $_SESSION["likes"] = [];
+        }
+        $_SESSION["likes"][] = $id; //push an item to a array
+    }
+
+    if(isset($_GET["removeLike"])){
+        $id = 1*$_GET["removeLike"];
+
+        if(!isset($_SESSION["likes"])){
+            $_SESSION["likes"] = [];
+        }
+        $new_likes = array_values(array_diff($_SESSION["likes"], [$id]));
+        //array_values: get the values of the array, skip showing all the keys
+        //array_diff: remove items with a certain value from an array
+        
+        $_SESSION["likes"] = $new_likes;
+    }
 ?>
 Here is the body 
         <?php
@@ -43,7 +65,6 @@ Here is the body
             <?php
             }
             ?>
-
         
         <div style="display:flex">
 
@@ -67,7 +88,25 @@ Here is the body
                     <?php
                         require "button.php"
                     ?>
-                    <!-- link to product detail page, with .php end -->
+                    <!-- button: link to product detail page, with .php end -->
+
+                    <!-- if in_array: show like button / Liked text -->
+                    <?php
+                        if(in_array($product["id"], $_SESSION["likes"])):
+                            ?>
+                        Liked <a href="?removeLike=<?= $product["id"] ?>">Remove</a>
+                            <?php
+                        else:
+                            ?>
+                        <a href="?like=<?= $product["id"] ?>">Like</a>
+                            <?php
+                        endif;
+                    ?>
+                    <form method="POST">
+                        <inpput type="hidden" name="action" value="like" />
+                        <inpput type="hidden" name="id" value="<?= $product["id"] ?>" />
+                        <button>Like</button>
+                    </form>
                 </div>
            <?php  }?>
             </div>
