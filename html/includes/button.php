@@ -1,0 +1,1 @@
+<a href="/newsletter.php?id=<?= $newsletter['id'] ?>"> view details</a> 
